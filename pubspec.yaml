@@ -1,12 +1,16 @@
 name: call_number
-description: A new flutter plugin project.
+description: Call a number directly from your Flutter App
 version: 0.0.1
-author:
-homepage:
+author: Sreenath S Das <sreenathsdas@gmail.com>
+homepage: https://github.com/sreesdas/flutter_call_number_plugin
 
 dependencies:
   flutter:
     sdk: flutter
+
+environment:
+  sdk: ">=2.0.0-dev.28.0 <3.0.0"
+  flutter: ">=0.1.4 <2.0.0"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
