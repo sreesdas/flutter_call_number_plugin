@@ -11,7 +11,16 @@
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"callNumber" isEqualToString:call.method]) {
-    result([@"Not yet Implemented in iOS"]);
+      
+      NSString* number = call.arguments[@"number"];
+      number = [number stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+      
+      if( ! [number hasPrefix:@"tel:"]){
+          number =  [NSString stringWithFormat:@"tel:%@", number];
+      }
+      
+      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:number]];
+    result(@YES);
   } else {
     result(FlutterMethodNotImplemented);
   }
