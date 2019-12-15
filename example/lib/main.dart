@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:call_number/call_number.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  _MyAppState createState() => new _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
 
-  final TextEditingController _controller = new TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   initState() {
@@ -20,27 +20,27 @@ class _MyAppState extends State<MyApp> {
 
   _initCall() async {
     if(_controller.text != null)
-      await new CallNumber().callNumber('+91' + _controller.text);
+      await CallNumber().callNumber(_controller.text);
   }
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Plugin example app'),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Plugin example app'),
         ),
-        body: new Column(
+        body: Column(
           children: 
             <Widget>[
-              new TextField(
+              TextField(
                 controller: _controller,
                 keyboardType: TextInputType.phone,
-                decoration: new InputDecoration(
+                decoration: InputDecoration(
                   hintText: 'Enter the Number',
                 ),
               ),
-              new IconButton(onPressed: _initCall, icon: new Icon(Icons.call)),
+              IconButton(onPressed: _initCall, icon: Icon(Icons.call)),
             ]
         ),
       ),
