@@ -12,6 +12,9 @@ class CallNumber {
     if (number == null) {
         return "NULL";
     }
+    if(! number.startsWith(new RegExp(r'\+\d+'))) {
+        return "INVALID NUMBER FORMAT"
+    }
     return await _channel.invokeMethod(
         'callNumber',
         <String, Object>{'number': number},
